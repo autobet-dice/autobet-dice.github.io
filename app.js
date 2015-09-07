@@ -2518,9 +2518,14 @@ var MyBetsTabContent = React.createClass({
 
 var FairnessTabContent = React.createClass({
   displayName: 'FairnessTabContent',
-    render: function(){
-      $(this.el).append("<ul> <li>hello world</li> </ul>");
-    }
+  render: function() {
+    return (
+      <p>
+        Hello, <input type="text" placeholder="Your name here" />!
+        It is {this.props.date.toTimeString()}
+      </p>
+    );
+  }
 });
 
 
