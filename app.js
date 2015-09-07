@@ -4,13 +4,13 @@
 
 var config = {
   // - Your app's id on moneypot.com
-  app_id: 594,                             // <----------------------------- EDIT ME!
+  app_id: 18,                             // <----------------------------- EDIT ME!
   // - Displayed in the navbar
-  app_name: 'InvestDice - Testing',
+  app_name: 'Untitled Dice',
   // - For your faucet to work, you must register your site at Recaptcha
   // - https://www.google.com/recaptcha/intro/index.html
   recaptcha_sitekey: '6LfI_QUTAAAAACrjjuzmLw0Cjx9uABxb8uguLbph',  // <----- EDIT ME!
-  redirect_uri: 'https://grabby7.github.io',
+  redirect_uri: 'https://untitled-dice.github.io',
   mp_browser_uri: 'https://www.moneypot.com',
   mp_api_uri: 'https://api.moneypot.com',
   chat_uri: '//socket.moneypot.com',
@@ -2351,6 +2351,19 @@ var Tabs = React.createClass({
             'My Bets'
           )
         ),
+      // Display Fairness tab even to guests so that they're aware that
+      // this casino has one.
+      !config.recaptcha_sitekey ? '' :
+        el.li(
+          {className: worldStore.state.currTab === 'FAIRNESS' ? 'active' : ''},
+          el.a(
+            {
+              href: 'javascript:void(0)',
+              onClick: this._makeTabChangeHandler('FAIRNESS')
+            },
+            el.span(null, 'Fairness ')
+          )
+        ),
       // Display faucet tab even to guests so that they're aware that
       // this casino has one.
       !config.recaptcha_sitekey ? '' :
@@ -2465,6 +2478,29 @@ var MyBetsTabContent = React.createClass({
     );
   }
 });
+
+var FairnessTabContent = React.createClass({
+  displayName: 'FairnessTabContent',
+  render: function() {
+
+    var innerNode;
+      innerNode = el.div(
+        null,
+        '<br /><h1>Welcome to Invest Dice</h1>
+Notice: Use of this site is prohibited in countries or jurisdictions where it is illegal. By using this site, you agree that gambling is legal in your country.
+<br />
+<br />
+<h3>Provably Fair</h3>
+Rolls begin at this site and are completed by MoneyPot. MoneyPot gives this site a hash prior to the bet and the script automatically verifies the outcome of each roll after it is made.'
+		)
+
+    return el.div(
+      null,
+      innerNode
+    );
+  }
+});
+
 
 var FaucetTabContent = React.createClass({
   displayName: 'FaucetTabContent',
@@ -2799,6 +2835,8 @@ var TabContent = React.createClass({
     switch(worldStore.state.currTab) {
       case 'FAUCET':
         return React.createElement(FaucetTabContent, null);
+	  case 'FAIRNESS':
+        return React.createElement(FairnessTabContent, null);
       case 'MY_BETS':
         return React.createElement(MyBetsTabContent, null);
       case 'ALL_BETS':
