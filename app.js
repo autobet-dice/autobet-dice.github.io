@@ -2523,9 +2523,6 @@ var FairnessTabContent = React.createClass({
 	var innerNode;
       innerNode = el.p(
         {className: 'navbar-text'},
-			  el.div(
-				  el.h1(null, "Welcome to Invest Dice")
-			  )
 			  el.p({className: 'lead'}, "Welcome to Invest Dice"),
 			  el.p(null, "Notice: Use of this site is prohibited in countries or jurisdictions where it is illegal. By using this site, you agree that gambling is legal in your country."),
 			  el.p({className: 'lead'}, "Provably Fair"),
