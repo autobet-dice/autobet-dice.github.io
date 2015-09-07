@@ -689,7 +689,7 @@ var betStore = new Store('bet', {
     Dispatcher.registerCallback("SET_MULTI_ON_LOSE", function(multiOnLose){
         var n = parseInt(multiOnLose, 10);
 		var q = parseInt(multiOnWin, 10);
-        if (isNaN(n) || /[^\d]/.test(n.toString()) || (q != 1)) {
+        if (isNaN(n) || /[^\d]/.test(n.toString())) {
           betStore.state.multiOnLose.str = '';
           betStore.state.multiOnLose.error = 'INVALID_AUTO_MULTIPLIER';
         }else {
@@ -2056,7 +2056,7 @@ var ToggleAutomaticRoll = React.createClass({
                           
                              
                               if(profitBet > 0) {
-								  Dispatcher.sendAction('RETURN_BASE_BET', 'AUGMENT_PROFIT', betStore.state.multiOnWin.str);
+								  Dispatcher.sendAction('RETURN_BASE_BET', betStore.state.multiOnWin.str);
 								  //Dispatcher.sendAction('RETURN_BASE_BET');
                               }else{
                                   Dispatcher.sendAction('AUGMENT_PROFIT', betStore.state.multiOnLose.str);
