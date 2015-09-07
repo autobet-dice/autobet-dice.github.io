@@ -2524,13 +2524,13 @@ var FairnessTabContent = React.createClass({
 });
 
 
-var FairnessTabContent = React.createClass({
-   displayName: 'FairnessTabContent',
-    render : function() {
-        this.$el.html("<input type='button' class='btn' value='Say Hello'></input>");
+//var FairnessTabContent = React.createClass({
+  // displayName: 'FairnessTabContent',
+    //render : function() {
+      //  this.$el.html("<input type='button' class='btn' value='Say Hello'></input>");
 
-    }
- });
+    //}
+ //});
 
 var FaucetTabContent = React.createClass({
   displayName: 'FaucetTabContent',
