@@ -1,9 +1,6 @@
 // Untitled Dice v0.0.8
 
 // Customize these configuration settings:
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-}
 
 var config = {
   // - Your app's id on moneypot.com
@@ -470,8 +467,8 @@ var chatStore = new Store('chat', {
 var betStore = new Store('bet', {
   nextHash: undefined,
   wager: {
-    str: '1.00',
-    num: 1.00,
+    str: '1',
+    num: 1,
     error: undefined
   },
   multiplier: {
@@ -481,8 +478,8 @@ var betStore = new Store('bet', {
   },
   hotkeysEnabled: false,
   automaticWager: {
-      str: '1.00',
-      num: 1.00,
+      str: '1',
+      num: 1,
       error: undefined
   },
   automaticMultiplierWager: {
@@ -542,7 +539,7 @@ var betStore = new Store('bet', {
     }
 
     // Ensure wagerString is a number
-    if (!isNumeric(n) || /[^\d]/.test(n.toString())) {
+    if (isNaN(n) || /[^\d]/.test(n.toString())) {
       self.state.wager.error = 'INVALID_WAGER';
     // Ensure user can afford balance
     } else if (n * 100 > worldStore.state.user.balance) {
