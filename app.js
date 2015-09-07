@@ -2535,6 +2535,7 @@ var FairnessTabContent = React.createClass({
        innerNode
      );
    }
+});
 
 var FaucetTabContent = React.createClass({
   displayName: 'FaucetTabContent',
