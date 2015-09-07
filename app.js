@@ -488,10 +488,12 @@ var betStore = new Store('bet', {
       error: undefined
   },
   multiOnLose: {
+	str: '1',
     num: '1',
     error: undefined
   },
   multiOnWin: {
+	str: '1',
     num: '1',
     error: undefined
   },
@@ -677,9 +679,9 @@ var betStore = new Store('bet', {
         var n = parseInt(multiOnWin, 10);
         if (isNaN(n) || /[^\d]/.test(n.toString())) {
           betStore.state.multiOnWin = '';
-          self.state.multiOnLose.error = 'INVALID_AUTO_MULTIPLIER';
+          self.state.multiOnWin.error = 'INVALID_AUTO_MULTIPLIER';
         }else {
-          self.state.multiOnLose.error = null;
+          self.state.multiOnWin.error = null;
           betStore.state.multiOnWin = n;
         }
         self.emitter.emit('change', self.state);
@@ -2053,8 +2055,8 @@ var ToggleAutomaticRoll = React.createClass({
                           
                              
                               if(profitBet > 0) {
-                                  Dispatcher.sendAction('RETURN_BASE_BET');
-								  Dispatcher.sendAction('AUGMENT_PROFIT', betStore.state.multiOnWin.str);
+								  Dispatcher.sendAction('RETURN_BASE_BET', 'AUGMENT_PROFIT', betStore.state.multiOnWin.str);
+								  //Dispatcher.sendAction('RETURN_BASE_BET');
                               }else{
                                   Dispatcher.sendAction('AUGMENT_PROFIT', betStore.state.multiOnLose.str);
                               }
@@ -2516,14 +2518,9 @@ var MyBetsTabContent = React.createClass({
 
 var FairnessTabContent = React.createClass({
   displayName: 'FairnessTabContent',
-	render: function() {
-		this.$el.html(
-			'<h1>Welcome to Invest Dice</h1><br />' +
-			'Notice: Use of this site is prohibited in countries or jurisdictions where it is illegal. By using this site, you agree that gambling is legal in your country.<br />' +
-			'<h3>Provably Fair</h3><br />' +
-			'Rolls begin at this site and are completed by MoneyPot. MoneyPot gives this site a hash prior to the bet and the script automatically verifies the outcome of each roll after it is made.<br />'
-		)
-	}
+    render: function(){
+      $(this.el).append("<ul> <li>hello world</li> </ul>");
+    }
 });
 
 
