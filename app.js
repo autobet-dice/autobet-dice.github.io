@@ -2516,6 +2516,9 @@ var MyBetsTabContent = React.createClass({
   }
 });
 
+
+var FairnessTabContent = React.createClass({
+  displayName: 'FairnessTabContent',
    render: function() {
 	var innerNode;
       innerNode = el.p(
