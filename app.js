@@ -2486,7 +2486,10 @@ var FairnessTabContent = React.createClass({
         viewHtml += 'Notice: Use of this site is prohibited in countries or jurisdictions where it is illegal. By using this site, you agree that gambling is legal in your country.<br />'
 		viewHtml += '<h3>Provably Fair</h3><br />'
 		viewHtml += 'Rolls begin at this site and are completed by MoneyPot. MoneyPot gives this site a hash prior to the bet and the script automatically verifies the outcome of each roll after it is made.<br />'
-		this.$el.empty().append(viewHtml);
+    return el.div(
+      null,
+      viewHtml
+    );
   }
 });
 
