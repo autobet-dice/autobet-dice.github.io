@@ -688,7 +688,8 @@ var betStore = new Store('bet', {
     });
     Dispatcher.registerCallback("SET_MULTI_ON_LOSE", function(multiOnLose){
         var n = parseInt(multiOnLose, 10);
-        if (isNaN(n) || /[^\d]/.test(n.toString())) {
+		var q = parseInt(multiOnWin, 10);
+        if (isNaN(n) || /[^\d]/.test(n.toString()) || (q != 1)) {
           betStore.state.multiOnLose.str = '';
           betStore.state.multiOnLose.error = 'INVALID_AUTO_MULTIPLIER';
         }else {
