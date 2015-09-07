@@ -1,6 +1,9 @@
 // Untitled Dice v0.0.8
 
 // Customize these configuration settings:
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
 var config = {
   // - Your app's id on moneypot.com
