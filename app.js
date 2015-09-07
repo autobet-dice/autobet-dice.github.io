@@ -467,8 +467,8 @@ var chatStore = new Store('chat', {
 var betStore = new Store('bet', {
   nextHash: undefined,
   wager: {
-    str: '1',
-    num: 1,
+    str: '1.00',
+    num: 1.00,
     error: undefined
   },
   multiplier: {
@@ -478,8 +478,8 @@ var betStore = new Store('bet', {
   },
   hotkeysEnabled: false,
   automaticWager: {
-      str: '1',
-      num: 1,
+      str: '1.00',
+      num: 1.00,
       error: undefined
   },
   automaticMultiplierWager: {
@@ -488,7 +488,7 @@ var betStore = new Store('bet', {
       error: undefined
   },
   multiOnLose: {
-    str: '1',
+    str: '2',
     error: undefined
   },
   clientSeed: {
@@ -533,7 +533,7 @@ var betStore = new Store('bet', {
 
     // If n is a number, ensure it's at least 1 bit
     if (isFinite(n)) {
-      n = Math.max(n, 1);
+      //n = Math.max(n, 1);
       self.state.wager.str = n.toString();
     }
 
