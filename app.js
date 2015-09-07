@@ -2516,26 +2516,25 @@ var MyBetsTabContent = React.createClass({
   }
 });
 
-var FairnessTabContent = React.createClass({
-  displayName: 'FairnessTabContent',
-  render: function() {
-    return (
-      <p>
-        Hello, <input type="text" placeholder="Your name here" />!
-        It is {this.props.date.toTimeString()}
-      </p>
-    );
-  }
-});
+   render: function() {
+	var innerNode;
+      innerNode = el.p(
+        {className: 'navbar-text'},
+			  el.div(
+				  el.h1(null, "Welcome to Invest Dice")
+			  )
+			  el.p({className: 'lead'}, "Welcome to Invest Dice"),
+			  el.p(null, "Notice: Use of this site is prohibited in countries or jurisdictions where it is illegal. By using this site, you agree that gambling is legal in your country."),
+			  el.p({className: 'lead'}, "Provably Fair"),
+			  el.p(null, "Rolls begin at this site and are completed by MoneyPot. MoneyPot gives this site a hash prior to the bet and the script automatically verifies the outcome of each roll after it is made.")
+      );
+	  
 
-
-//var FairnessTabContent = React.createClass({
-  // displayName: 'FairnessTabContent',
-    //render : function() {
-      //  this.$el.html("<input type='button' class='btn' value='Say Hello'></input>");
-
-    //}
- //});
+     return el.div(
+       null,
+       innerNode
+     );
+   }
 
 var FaucetTabContent = React.createClass({
   displayName: 'FaucetTabContent',
