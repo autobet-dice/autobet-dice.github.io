@@ -482,13 +482,17 @@ var betStore = new Store('bet', {
       num: 1,
       error: undefined
   },
-  automaticMultiplierWager: {
-      str: '2.00',
-      num: 2.00,
+  automaticMultiplierLossWager: {
+      str: '1.00',
+      num: 1.00,
       error: undefined
   },
   multiOnLose: {
-    str: '2',
+    num: '1',
+    error: undefined
+  },
+  multiOnWin: {
+    num: '1',
     error: undefined
   },
   clientSeed: {
@@ -500,7 +504,6 @@ var betStore = new Store('bet', {
   automaticToggle: false,
   increaseOnWin: true,
   increaseOnLose: true,
-  multiOnWin: 0,
   betCounter: 1,
   stopMaxBalance: '',
   stopMinBalance: '',
@@ -722,7 +725,7 @@ var betStore = new Store('bet', {
     });
    
     Dispatcher.registerCallback('UPDATE_NUMBER_OF_BETS_LIMIT', function(limit) {
-        self.state.NumberOfBetLimit = _.merge({}, self.state.automaticMultiplierWager, limit);
+        self.state.NumberOfBetLimit = _.merge({}, self.state.automaticMultiplierLossWager, limit);
         self.emitter.emit('change', self.state);
     });
   
@@ -1947,6 +1950,10 @@ var ToggleAutomaticRoll = React.createClass({
   _stopRoll: function(){
       Dispatcher.sendAction("STOP_ROLL");
   },
+  _setMultiOnWin: function(e){
+      Dispatcher.sendAction("SET_MULTI_ON_WIN", e.currentTarget.value);
+      this.forceUpdate();
+  },
   _setMultiOnLose: function(e){
       Dispatcher.sendAction("SET_MULTI_ON_LOSE", e.currentTarget.value);
       this.forceUpdate();
@@ -2047,6 +2054,7 @@ var ToggleAutomaticRoll = React.createClass({
                              
                               if(profitBet > 0) {
                                   Dispatcher.sendAction('RETURN_BASE_BET');
+								  Dispatcher.sendAction('AUGMENT_PROFIT', betStore.state.multiOnWin.str);
                               }else{
                                   Dispatcher.sendAction('AUGMENT_PROFIT', betStore.state.multiOnLose.str);
                               }
@@ -2254,6 +2262,33 @@ var ToggleAutomaticRoll = React.createClass({
                             )
                       )   
                   ),
+				  
+                  el.div({className:'col-lg-12 col-md-12 col-sm-12 col-xs-12'},
+                      el.p(null, "Multiplier On Win")
+                  ),
+                el.div({className:'col-lg-12 col-md-12 col-sm-12 col-xs-12'},
+                    el.div({className:'automateBackground'},
+                        el.div({className:'row'},
+                            el.div({className: 'col-lg-3 col-md-3 col-sm-3 col-xs-3'}, ' '),
+                            el.div({className:'col-lg-6 col-md-6 col-sm-6 col-xs-6 input-group'},
+                                    el.input(
+                                        {
+                                            type:'text',
+                                            className:'returnAmount form-control input-lg',
+                                            onChange: this._setMultiOnWin,
+                                            value: betStore.state.multiOnWin.str
+                                        }
+                                    ),
+                                    el.span(
+                                        {className: 'input-group-addon'},
+                                        'X'
+                                    )
+                              ),
+                              el.div({className: 'col-lg-3 col-md-3 col-sm-3 col-xs-3'}, ' ')
+                            )
+                      )   
+                  ),
+				  
                   el.div({className:'col-lg-12 col-md-12 col-sm-12 col-xs-12'},
                       el.p(null, "Stop if balance >")
                   ),
