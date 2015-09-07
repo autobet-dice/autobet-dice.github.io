@@ -2526,22 +2526,10 @@ var FairnessTabContent = React.createClass({
 
 var FairnessTabContent = React.createClass({
    displayName: 'FairnessTabContent',
-   render: function() {
-	var innerNode;
-      innerNode = el.p(
-        {className: 'navbar-text'},
-			  el.div(
-				  el.h1(null, "Welcome to Invest Dice")
-			  ),
-			  el.p(null, "Notice: Use of this site is prohibited in countries or jurisdictions where it is illegal. By using this site, you agree that gambling is legal in your country.")
-      );
-	  
+    render : function() {
+        this.$el.html("<input type='button' class='btn' value='Say Hello'></input>");
 
-     return el.div(
-       null,
-       innerNode
-     );
-   }
+    }
  });
 
 var FaucetTabContent = React.createClass({
