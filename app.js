@@ -2361,7 +2361,7 @@ var Tabs = React.createClass({
               href: 'javascript:void(0)',
               onClick: this._makeTabChangeHandler('FAIRNESS')
             },
-            el.span(null, 'Fairness ')
+            el.span(null, 'Help & Fairness ')
           )
         ),
       // Display faucet tab even to guests so that they're aware that
