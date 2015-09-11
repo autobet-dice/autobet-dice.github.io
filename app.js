@@ -529,13 +529,14 @@ var betStore = new Store('bet', {
   Dispatcher.registerCallback('UPDATE_WAGER', function(newWager) {
     self.state.wager = _.merge({}, self.state.wager, newWager);
 
-    var n = parseInt(self.state.wager.str, 10);
+    var n = parseInt(self.state.wager.str, 10); n = 1.8;
 
     // If n is a number, ensure it's at least 1 bit
     //if (isFinite(n)) {
       //n = Math.max(n, 1);
       self.state.wager.str = n.toString();
     //}
+	
 
     // Ensure wagerString is a number
     //if (isNaN(n) || /[^\d]/.test(n.toString())) {
@@ -559,7 +560,7 @@ var betStore = new Store('bet', {
         }
       }
     }
-	n = 1.15;
+	
 	    self.state.wager.error = null; // z
 	    self.state.wager.str = n.toString(); // z
 		//self.state.wager.str = "1.11";
