@@ -527,11 +527,11 @@ var betStore = new Store('bet', {
   });
 
   Dispatcher.registerCallback('UPDATE_WAGER', function(newWager) {
-    self.state.wager = _.merge({}, self.state.wager, newWager);
+    //self.state.wager = _.merge({}, self.state.wager, newWager);
 
     //var n = parseInt(self.state.wager.str, 10);
 	//var n = parseInt("1.3", 10);
-	var n = self.state.wager.str;
+	var n = newWager;
 
     // If n is a number, ensure it's at least 1 bit
     //if (isFinite(n)) {
