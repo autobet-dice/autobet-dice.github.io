@@ -532,10 +532,10 @@ var betStore = new Store('bet', {
     var n = parseInt(self.state.wager.str, 10);
 
     // If n is a number, ensure it's at least 1 bit
-    if (isFinite(n)) {
+    //if (isFinite(n)) {
       //n = Math.max(n, 1);
       self.state.wager.str = n.toString();
-    }
+    //}
 
     // Ensure wagerString is a number
     //if (isNaN(n) || /[^\d]/.test(n.toString())) {
@@ -559,6 +559,9 @@ var betStore = new Store('bet', {
         }
       }
     }
+	    self.state.wager.error = null;
+	    self.state.wager.str = n.toString();
+	    self.state.wager.num = n;
 
     self.emitter.emit('change', self.state);
   });
