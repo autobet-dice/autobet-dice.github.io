@@ -531,7 +531,7 @@ var betStore = new Store('bet', {
 
     //var n = parseInt(self.state.wager.str, 10);
 	//var n = parseInt("1.3", 10);
-	var n = newWager;
+	var n = self.state.wager.int;
 
     // If n is a number, ensure it's at least 1 bit
     //if (isFinite(n)) {
