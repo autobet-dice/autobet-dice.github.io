@@ -530,7 +530,7 @@ var betStore = new Store('bet', {
     self.state.wager = _.merge({}, self.state.wager, newWager);
 
     var n = parseInt(self.state.wager.str, 10);
-	n = 1.4;
+	n = parseInt(1.3, 10);
 	
 
     // If n is a number, ensure it's at least 1 bit
