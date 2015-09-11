@@ -529,8 +529,8 @@ var betStore = new Store('bet', {
   Dispatcher.registerCallback('UPDATE_WAGER', function(newWager) {
     self.state.wager = _.merge({}, self.state.wager, newWager);
 
-    //var n = parseInt(self.state.wager.str, 10);
-	var n = parseInt("1.3", 10);
+    var n = parseInt(self.state.wager.str, 10);
+	//var n = parseInt("1.3", 10);
 	//var n = self.state.wager.str;
 
     // If n is a number, ensure it's at least 1 bit
@@ -903,7 +903,7 @@ var UserBox = React.createClass({
     var windowName = 'manage-auth';
     var windowOpts = [
       'width=420',
-      'height=350',
+      'height=550',
       'left=100',
       'top=100'
     ].join(',');
