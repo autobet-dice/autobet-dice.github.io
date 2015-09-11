@@ -588,16 +588,18 @@ var betStore = new Store('bet', {
   Dispatcher.registerCallback('UPDATE_AUTOMATIC_WAGER', function(newWager) {
         self.state.automaticWager = _.merge({}, self.state.automaticWager, newWager);
         
-        var n = parseInt(self.state.automaticWager.str, 10);
+        //var n = parseInt(self.state.automaticWager.str, 10);
+		var n = self.state.automaticWager.str;
         
         // If n is a number, ensure it's at least 1 bit
-        if (isFinite(n)) {
-          n = Math.max(n, 1);
+        //if (isFinite(n)) {
+          //n = Math.max(n, 1);
           self.state.automaticWager.str = n.toString();
-        }
+        //}
         
         // Ensure wagerString is a number
-        if (isNaN(n) || /[^\d]/.test(n.toString())) {
+        //if (isNaN(n) || /[^\d]/.test(n.toString())) {
+		if (n < 1) {
           self.state.automaticWager.error = 'INVALID_WAGER';
         // Ensure user can afford balance
         } else if (n * 100 > worldStore.state.user.balance) {
@@ -609,6 +611,7 @@ var betStore = new Store('bet', {
           self.state.automaticWager.str = n.toString();
           self.state.automaticWager.num = n;
         }
+		
         
         self.emitter.emit('change', self.state);
     });
