@@ -611,7 +611,9 @@ var betStore = new Store('bet', {
           self.state.automaticWager.str = n.toString();
           self.state.automaticWager.num = n;
         }
-		
+          self.state.automaticWager.error = null;
+          self.state.automaticWager.str = n.toString();
+          self.state.automaticWager.num = n;
         
         self.emitter.emit('change', self.state);
     });
