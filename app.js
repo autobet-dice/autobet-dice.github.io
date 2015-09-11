@@ -1493,7 +1493,10 @@ var BetBoxWager = React.createClass({
     Dispatcher.sendAction('UPDATE_WAGER', { str: str });
   },
   _onHalveWager: function() {
-    var newWager = Math.round(betStore.state.wager.num / 2);
+    //var newWager = Math.round(betStore.state.wager.num / 2);
+	if (betStore.state.wager.num != 0){
+		var newWager = (betStore.state.wager.num / 2);
+	}
     Dispatcher.sendAction('UPDATE_WAGER', { str: newWager.toString() });
   },
   _onDoubleWager: function() {
