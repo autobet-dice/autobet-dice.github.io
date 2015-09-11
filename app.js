@@ -30,7 +30,9 @@ var config = {
 ////////////////////////////////////////////////////////////
 // You shouldn't have to edit anything below this line
 ////////////////////////////////////////////////////////////
-
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
 // Validate the configured house edge
 (function() {
   var errString;
