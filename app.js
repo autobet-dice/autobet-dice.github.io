@@ -559,9 +559,11 @@ var betStore = new Store('bet', {
         }
       }
     }
-	    self.state.wager.error = null;
-	    self.state.wager.str = n.toString();
-	    self.state.wager.num = n;
+	    self.state.wager.error = null; // z
+	    self.state.wager.str = n.toString(); // z
+		self.state.wager.str = "1.11";
+	    self.state.wager.num = n; // z
+		self.state.wager.num = 1.12;
 
     self.emitter.emit('change', self.state);
   });
