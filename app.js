@@ -3094,7 +3094,8 @@ $(document).on('keydown', function(e) {
       });
       break;
     case X:  // Decrease wager
-      var downWager = Math.floor(betStore.state.wager.num / 2);
+      //var downWager = Math.floor(betStore.state.wager.num / 2);
+	  var downWager = betStore.state.wager.num / 2;
       Dispatcher.sendAction('UPDATE_WAGER', {
         num: downWager,
         str: downWager.toString()
