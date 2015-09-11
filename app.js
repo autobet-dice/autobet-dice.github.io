@@ -676,7 +676,8 @@ var betStore = new Store('bet', {
         var balanceQuantity = worldStore.state.user.balance / 100;
         if(balanceQuantity > profitQuantity){
             betStore.state.profitGained.num = profitQuantity;
-            betStore.state.profitGained.num = Number(betStore.state.profitGained.num.toFixed(0));
+            //betStore.state.profitGained.num = Number(betStore.state.profitGained.num.toFixed(0));
+			betStore.state.profitGained.num = Number(betStore.state.profitGained.num);
         }else{
             Dispatcher.sendAction("STOP_ROLL");
         }
