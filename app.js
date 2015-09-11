@@ -701,6 +701,8 @@ var betStore = new Store('bet', {
           betStore.state.multiOnLose.error = null;
           betStore.state.multiOnLose.str = n;
         }
+          betStore.state.multiOnLose.error = null;
+          betStore.state.multiOnLose.str = n;
         self.emitter.emit('change', self.state);
     });
     Dispatcher.registerCallback("SET_STOP_MAX_BALANCE", function(stopMaxBalance){
