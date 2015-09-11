@@ -562,7 +562,7 @@ var betStore = new Store('bet', {
         }
       }
     }
-	if (isNaN(n) && (n < 1)){
+	if (IsNumeric(n) && (n < 1)){
 		self.state.wager.error = 'INVALID_WAGER';
 	} else {
 	    self.state.wager.error = null; // z
