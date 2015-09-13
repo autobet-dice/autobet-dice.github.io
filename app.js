@@ -2807,7 +2807,7 @@ var BetRow = React.createClass({
 var AllBetsTabContent = React.createClass({
   displayName: 'AllBetsTabContent',
   _onStoreChange: function() {
-    //this.forceUpdate();
+    this.forceUpdate();
   },
   componentDidMount: function() {
     worldStore.on('change', this._onStoreChange);
@@ -2969,7 +2969,8 @@ if (!worldStore.state.accessToken) {
   MoneyPot.listBets({
     success: function(bets) {
       console.log('[MoneyPot.listBets]:', bets);
-      Dispatcher.sendAction('INIT_ALL_BETS', bets.reverse());
+      //Dispatcher.sendAction('INIT_ALL_BETS', bets.reverse());
+	  setTimeout(Dispatcher.sendAction('INIT_ALL_BETS', bets.reverse()), 1000);
     },
     error: function(err) {
       console.error('[MoneyPot.listBets] Error:', err);
