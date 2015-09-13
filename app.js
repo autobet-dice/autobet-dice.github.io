@@ -234,17 +234,6 @@ var MoneyPot = (function() {
     $.ajax(_.merge({}, ajaxOpts, overrideOpts || {}));
   };
 
- o.tip = function(callbacks) {
-      var endpoint = '/tip';
-      var bodyParams = {  
-          uname: // betStore.state.tipuname, or however you want to get the name
-          amount: // betStore.state.tipbalance * 100 // 1 = 1 Bit 
-        };
-        
-          makeMPRequest('POST', bodyParams, endpoint, callbacks);
-  };
- 
-  
   o.listBets = function(callbacks) {
     var endpoint = '/list-bets';
     makeMPRequest('GET', undefined, endpoint, callbacks, {
@@ -908,16 +897,6 @@ var UserBox = React.createClass({
   _onRefreshUser: function() {
     Dispatcher.sendAction('START_REFRESHING_USER');
   },
-  _onsendtip: function() {
-         MoneyPot.tip({
-           success: function(data) {
-            toastr.success('You Sent ' + betStore.state.tipuname + ' ' + betStore.state.tipbalance + ' Bit(s)', 'Success'); 
-             },
-            error: function(err) {
-                 toastr.error('Make Sure You Have The Correct Username and Enough Balance', 'Error');
-            }
-        })
-    },
   _openWithdrawPopup: function() {
     var windowUrl = config.mp_browser_uri + '/dialog/withdraw?app_id=' + config.app_id;
     var windowName = 'manage-auth';
@@ -2991,7 +2970,7 @@ if (!worldStore.state.accessToken) {
     success: function(bets) {
       console.log('[MoneyPot.listBets]:', bets);
       Dispatcher.sendAction('INIT_ALL_BETS', bets.reverse());
-	  //setTimeout(Dispatcher.sendAction('INIT_ALL_BETS', bets.reverse()), 10000);  -  this didn't seem to work
+	  //setTimeout(Dispatcher.sendAction('INIT_ALL_BETS', bets.reverse()), 10000);
     },
     error: function(err) {
       console.error('[MoneyPot.listBets] Error:', err);
