@@ -552,7 +552,7 @@ var betStore = new Store('bet', {
       self.state.wager.num = n;
     } else {
       // wagerString is valid
-      if (n > 1100000){
+      if (n > 1500000){
         self.state.wager.error = 'CANNOT_AFFORD_WAGER';
         self.state.wager.num = n;
       } else {
@@ -2807,7 +2807,7 @@ var BetRow = React.createClass({
 var AllBetsTabContent = React.createClass({
   displayName: 'AllBetsTabContent',
   _onStoreChange: function() {
-    this.forceUpdate();
+    //this.forceUpdate();
   },
   componentDidMount: function() {
     worldStore.on('change', this._onStoreChange);
