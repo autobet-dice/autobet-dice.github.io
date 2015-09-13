@@ -2970,7 +2970,7 @@ if (!worldStore.state.accessToken) {
     success: function(bets) {
       console.log('[MoneyPot.listBets]:', bets);
       //Dispatcher.sendAction('INIT_ALL_BETS', bets.reverse());
-	  setTimeout(Dispatcher.sendAction('INIT_ALL_BETS', bets.reverse()), 1000);
+	  setTimeout(Dispatcher.sendAction('INIT_ALL_BETS', bets.reverse()), 10000);
     },
     error: function(err) {
       console.error('[MoneyPot.listBets] Error:', err);
