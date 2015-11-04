@@ -465,6 +465,29 @@ var chatStore = new Store('chat', {
 		var tipto = tipres[2];
 		// send tip to moneypot
 		
+		
+	var params = {
+        uname: tipto,
+        amount: tipamount
+      };
+
+	  MoneyPot.tip(params, {
+                  success: function(bet) {
+                    console.log('Successfully made tip.');
+                  },
+                  error: function(xhr) {
+                    console.log('Error');
+                    if (xhr.responseJSON && xhr.responseJSON) {
+                      alert(xhr.responseJSON.error);
+                    } else {
+                      alert('Internal Error');
+                    }
+                  }
+
+                  }
+		
+		
+		
   		
   	} else {
     console.log('[ChatStore] received SEND_MESSAGE');
