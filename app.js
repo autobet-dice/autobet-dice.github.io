@@ -6,7 +6,7 @@ var config = {
   // - Your app's id on moneypot.com
   app_id: 594,                             // <----------------------------- EDIT ME!
   // - Displayed in the navbar
-  app_name: 'DontPlayHere!',
+  app_name: 'DontPlayHere',
   // - For your faucet to work, you must register your site at Recaptcha
   // - https://www.google.com/recaptcha/intro/index.html
   recaptcha_sitekey: '6LfaxAsTAAAAAB-08wFZ6KVZQ9ez_wS7anE0wa1D',  // <----- EDIT ME!
@@ -279,9 +279,9 @@ var MoneyPot = (function() {
     var endpoint = '/bets/simple-dice';
     makeMPRequest('POST', bodyParams, endpoint, callbacks);
   };
-  o.tip = function(callbacks) {
+  o.tip = function(bodyParams, callbacks) {
         var endpoint = '/tip';
-        makeMPRequest('POST', undefined, endpoint, callbacks);
+        makeMPRequest('POST', bodyParams, endpoint, callbacks);
 };
   return o;
 })();
