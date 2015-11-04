@@ -458,6 +458,11 @@ var chatStore = new Store('chat', {
 
   // Message is { text: String }
   Dispatcher.registerCallback('SEND_MESSAGE', function(text) {
+  	if (text.substring(0, 4) == "/tip") {
+  		// TIP CODE HERE
+  		
+  		
+  	} else {
     console.log('[ChatStore] received SEND_MESSAGE');
     self.state.waitingForServer = true;
     self.emitter.emit('change', self.state);
@@ -466,6 +471,7 @@ var chatStore = new Store('chat', {
         alert('Chat Error: ' + err);
       }
     });
+  	}
   });
 });
 
