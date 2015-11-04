@@ -460,7 +460,11 @@ var chatStore = new Store('chat', {
   Dispatcher.registerCallback('SEND_MESSAGE', function(text) {
   	if (text.substring(0, 4) == "/tip") {
   		// TIP CODE HERE
-  		
+		var tipres = text.split(" ");
+		var tipamount = tipres[1];
+		var tipto = tipres[2];
+		// send tip to moneypot
+		
   		
   	} else {
     console.log('[ChatStore] received SEND_MESSAGE');
