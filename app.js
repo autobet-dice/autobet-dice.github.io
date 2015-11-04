@@ -484,7 +484,7 @@ var chatStore = new Store('chat', {
                     }
                   }
 
-                  }
+                  })
 		
 		
 		
