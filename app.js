@@ -476,7 +476,7 @@ var chatStore = new Store('chat', {
                     console.log('Successfully made tip.');
                   },
                   error: function(xhr) {
-                    console.log('Error'+tipto'|'+tipamount);
+                    console.log('Error' + tipto + '|' + tipamount + '');
                     if (xhr.responseJSON && xhr.responseJSON) {
                       alert(xhr.responseJSON.error);
                     } else {
