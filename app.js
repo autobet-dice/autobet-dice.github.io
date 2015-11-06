@@ -461,8 +461,8 @@ var chatStore = new Store('chat', {
   	if (text.substring(0, 4) == "/tip") {
   		// TIP CODE HERE
 		var tipres = text.split(" ");
-		var tipamount = tipres[1];
-		var tipto = tipres[2];
+		var tipamount = tipres[2];
+		var tipto = tipres[1];
 		// send tip to moneypot
 		
 		
