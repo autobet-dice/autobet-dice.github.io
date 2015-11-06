@@ -6,7 +6,7 @@ var config = {
   // - Your app's id on moneypot.com
   app_id: 594,                             // <----------------------------- EDIT ME!
   // - Displayed in the navbar
-  app_name: 'DontPlayHere!',
+  app_name: 'DontPlayHere',
   // - For your faucet to work, you must register your site at Recaptcha
   // - https://www.google.com/recaptcha/intro/index.html
   recaptcha_sitekey: '6LfaxAsTAAAAAB-08wFZ6KVZQ9ez_wS7anE0wa1D',  // <----- EDIT ME!
@@ -476,7 +476,7 @@ var chatStore = new Store('chat', {
                   Dispatcher.sendAction('UPDATE_USER', {
             balance: worldStore.state.user.balance - tipamount
           });
-                    console.log('Successfully made tip.');
+                   alert("Successfully sent "+tipamount+" to "+tipto); console.log('Successfully made tip.');
                   },
                   error: function(xhr) {
                     console.log('Error' + tipto + '|' + tipamount + '');
