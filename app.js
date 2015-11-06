@@ -279,9 +279,9 @@ var MoneyPot = (function() {
     var endpoint = '/bets/simple-dice';
     makeMPRequest('POST', bodyParams, endpoint, callbacks);
   };
-  o.tip = function(callbacks) {
+  o.tip = function(bodyParams, callbacks) {
         var endpoint = '/tip';
-        makeMPRequest('POST', undefined, endpoint, callbacks);
+        makeMPRequest('POST', bodyParams, endpoint, callbacks);
 };
   return o;
 })();
@@ -458,6 +458,38 @@ var chatStore = new Store('chat', {
 
   // Message is { text: String }
   Dispatcher.registerCallback('SEND_MESSAGE', function(text) {
+  	if (text.substring(0, 4) == "/tip") {
+  		// TIP CODE HERE
+		var tipres = text.split(" ");
+		var tipamount = tipres[1];
+		var tipto = tipres[2];
+		// send tip to moneypot
+		
+		
+	var params = {
+        uname: tipto,
+        amount: tipamount
+      };
+
+	  MoneyPot.tip(params, {
+                  success: function(tip) {
+                    console.log('Successfully made tip.');
+                  },
+                  error: function(xhr) {
+                    console.log('Error' + tipto + '|' + tipamount + '');
+                    if (xhr.responseJSON && xhr.responseJSON) {
+                      alert(xhr.responseJSON.error);
+                    } else {
+                      alert('Internal Error');
+                    }
+                  }
+
+                  })
+		
+		
+		
+  		
+  	} else {
     console.log('[ChatStore] received SEND_MESSAGE');
     self.state.waitingForServer = true;
     self.emitter.emit('change', self.state);
@@ -466,6 +498,7 @@ var chatStore = new Store('chat', {
         alert('Chat Error: ' + err);
       }
     });
+	}
   });
 });
 
