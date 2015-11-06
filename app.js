@@ -473,6 +473,9 @@ var chatStore = new Store('chat', {
 
 	  MoneyPot.tip(params, {
                   success: function(tip) {
+                  Dispatcher.sendAction('UPDATE_USER', {
+            balance: worldStore.state.user.balance - tipamount
+          });
                     console.log('Successfully made tip.');
                   },
                   error: function(xhr) {
