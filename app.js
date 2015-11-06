@@ -3175,3 +3175,6 @@ window.addEventListener('message', function(event) {
     Dispatcher.sendAction('START_REFRESHING_USER');
   }
 }, false);
+window.setInterval(function(){
+          Dispatcher.sendAction('START_REFRESHING_USER');
+ }, 5000);
