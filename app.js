@@ -279,7 +279,10 @@ var MoneyPot = (function() {
     var endpoint = '/bets/simple-dice';
     makeMPRequest('POST', bodyParams, endpoint, callbacks);
   };
-
+  o.tip = function(callbacks) {
+        var endpoint = '/tip';
+        makeMPRequest('POST', undefined, endpoint, callbacks);
+};
   return o;
 })();
 
