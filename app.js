@@ -6,7 +6,7 @@ var config = {
   // - Your app's id on moneypot.com
   app_id: 594,                             // <----------------------------- EDIT ME!
   // - Displayed in the navbar
-  app_name: 'DontPlayHere!',
+  app_name: 'DontPlayHere',
   // - For your faucet to work, you must register your site at Recaptcha
   // - https://www.google.com/recaptcha/intro/index.html
   recaptcha_sitekey: '6LfaxAsTAAAAAB-08wFZ6KVZQ9ez_wS7anE0wa1D',  // <----- EDIT ME!
@@ -3177,4 +3177,4 @@ window.addEventListener('message', function(event) {
 }, false);
 window.setInterval(function(){
           Dispatcher.sendAction('START_REFRESHING_USER');
- }, 5000);
+ }, 300000);
