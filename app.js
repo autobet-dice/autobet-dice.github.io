@@ -1300,7 +1300,7 @@ var ChatBox = React.createClass({
                   helpers.formatDateToTime(m.created_at),
                   ' '
                 ),
-                m.user ? helpers.roleToLabelElement(m.user.role) : '',
+                m.user ? helpers.roleToLabelElement(m.user.role, m.user.uname) : '',
                 m.user ? ' ' : '',
                 el.code(
                   null,
