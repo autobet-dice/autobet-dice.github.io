@@ -120,7 +120,7 @@ helpers.roleToLabelElement = function(role, uname) {
       return el.span({className: 'label label-primary'}, '★Owner★');
     default:
       if (uname == "kody"){
-      	return el.span({className: 'label label-primary'}, '★Bot★');
+      	return el.span({className: 'label label-info'}, '★Bot★');
       } else {
       	return el.span({className: 'label label-primary'}, '☆');
       }
