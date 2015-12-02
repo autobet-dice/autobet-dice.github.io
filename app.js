@@ -1011,12 +1011,12 @@ var UserBox = React.createClass({
             className: 'navbar-text',
             style: {marginRight: '5px'}
           },
-          (worldStore.state.user.balance * 0.00000001)-8), + ' BTC',
+          (worldStore.state.user.balance * 0.00000001)-8) + ' BTC',
           !worldStore.state.user.unconfirmed_balance ?
            '' :
            el.span(
              {style: { color: '#e67e22'}},
-             ' + ' + (worldStore.state.user.unconfirmed_balance * 0.00000001)-8), + ' BTC pending'
+             ' + ' + (worldStore.state.user.unconfirmed_balance * 0.00000001)-8) + ' BTC pending'
            )
         ),
         // Refresh button
