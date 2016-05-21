@@ -4,13 +4,13 @@
 
 var config = {
   // - Your app's id on moneypot.com
-  app_id: 594,                             // <----------------------------- EDIT ME!
+  app_id: 1151,                             // <----------------------------- EDIT ME!
   // - Displayed in the navbar
-  app_name: 'DontPlayHere',
+  app_name: 'Auto Bet Dice',
   // - For your faucet to work, you must register your site at Recaptcha
   // - https://www.google.com/recaptcha/intro/index.html
-  recaptcha_sitekey: '6LfaxAsTAAAAAB-08wFZ6KVZQ9ez_wS7anE0wa1D',  // <----- EDIT ME!
-  redirect_uri: 'https://grabby7.github.io',
+  recaptcha_sitekey: '6LdThCATAAAAANmnseWXcIaTCK90h6PllpY6ilKp',  // <----- EDIT ME!
+  redirect_uri: 'https://autobet-dice.github.io',
   mp_browser_uri: 'https://www.moneypot.com',
   mp_api_uri: 'https://api.moneypot.com',
   chat_uri: '//socket.moneypot.com',
@@ -21,7 +21,7 @@ var config = {
   force_https_redirect: !isRunningLocally(),
   // - Configure the house edge (default is 1%)
   //   Must be between 0.0 (0%) and 1.0 (100%)
-  house_edge: 0.02,
+  house_edge: 0.001,
   chat_buffer_size: 75,
   // - The amount of bets to show on screen in each tab
   bet_buffer_size: 20
